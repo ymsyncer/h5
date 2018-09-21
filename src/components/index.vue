@@ -74,56 +74,42 @@
       <div class="box-inside">
         <div class="positon-center back" @click="showPage(3)"><span>返回背景</span></div>
         <div class="positon-center canvas-box">
-          <canvas id="canvas"></canvas>
-          <canvas id="canvas1"></canvas>
+          <div class="people">
+            <img src="../assets/img/malebody/male.png" name="body">
+            <img src="../assets/img/malehair/malehair1.png" name="hair">
+            <img src="../assets/img/malejacket/malejacket1.png" name="jacket">
+            <img src="../assets/img/malepants/malepants1.png" name="pants">
+            <img src="../assets/img/maleshoes/maleshoes1.png" name="shoes">
+            <img src="../assets/img/object/object1.png" name="object">
+            <img src="../assets/img/eye/eye1.png" name="eye">
+          </div>
+          <canvas id="canvas" style="display: none;"></canvas>
+          <canvas id="canvas1" style="display: none;"></canvas>
         </div>
-        <nav class="nav J_menu show">
+        <!--<div class="positon-center canvas-box">-->
+          <!--<canvas id="canvas"></canvas>-->
+          <!--<canvas id="canvas1"></canvas>-->
+        <!--</div>-->
+        <nav class="nav" :class="{show:!isIcon}">
           <div class="nav-box">
-            <div class="item hair">
-              <i></i>
-              <span>发型</span>
-            </div>
-            <div class="item jacket">
-              <i></i>
-              <span>上衣</span>
-            </div>
-            <div class="item pants">
-              <i></i>
-              <span>下装</span>
-            </div>
-            <div class="item shoes">
-              <i></i>
-              <span>鞋子</span>
-            </div>
-            <div class="item object">
-              <i></i>
-              <span>装饰</span>
-            </div>
-            <div class="item eye">
-              <i></i>
-              <span>眼镜</span>
-            </div>
-            <div class="item hat">
-              <i></i>
-              <span>包包</span>
+            <div v-for=" type in types" class="item" :class="type.class">
+              <i @click="selectDetail(type)"></i>
+              <span>{{type.name}}</span>
             </div>
           </div>
         </nav>
-        <div class="nav J_list list">
+        <div class="nav" :class="{show:isIcon}">
           <ul class="nav-box nav-bg">
             <li class="hat">
               <div class="item hat">
                 <i></i>
-                <span>包包</span>
+                <span>帽子</span>
               </div>
               <div class="nav-scole">
                 <div class="nav-scole-div">
-                  <!--<span class="icon hat1"></span>-->
-                  <!--<span class="icon hat2"></span>-->
-                  <!--<span class="icon hat3"></span>-->
-                  <!--<span class="icon hat4"></span>-->
-                  <!--<span class="icon hat5"></span>-->
-                  <!--<span class="icon hat6"></span>-->
+                  <span class="icon hat1"></span>
+                  <span class="icon hat2"></span>
+                  <span class="icon hat3"></span>
                 </div>
               </div>
             </li>
@@ -139,9 +125,6 @@
                   </div>
                   <div class="cur-box">
                     <span class="icon eye2"></span>
-                  </div>
-                  <div class="cur-box">
-                    <span class="icon eye3"></span>
                   </div>
                 </div>
               </div>
@@ -164,6 +147,24 @@
                   </div>
                   <div class="cur-box">
                     <span class="icon femalehair4"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair5"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair6"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair7"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair8"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair9"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon femalehair10"></span>
                   </div>
                 </div>
               </div>
@@ -214,9 +215,6 @@
                   </div>
                   <div class="cur-box">
                     <span class="icon femalepants5"></span>
-                  </div>
-                  <div class="cur-box">
-                    <span class="icon femalepants6"></span>
                   </div>
                 </div>
               </div>
@@ -323,6 +321,18 @@
                   <div class="cur-box">
                     <span class="icon malehair5"></span>
                   </div>
+                  <div class="cur-box">
+                    <span class="icon malehair6"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon malehair7"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon malehair8"></span>
+                  </div>
+                  <div class="cur-box">
+                    <span class="icon malehair9"></span>
+                  </div>
                 </div>
               </div>
             </li>
@@ -347,9 +357,6 @@
                   </div>
                   <div class="cur-box">
                     <span class="icon malepants5"></span>
-                  </div>
-                  <div class="cur-box">
-                    <span class="icon malepants6"></span>
                   </div>
                 </div>
               </div>
@@ -376,9 +383,6 @@
                   <div class="cur-box ">
                     <span class="icon malejacket5"></span>
                   </div>
-                  <div class="cur-box ">
-                    <span class="icon malejacket6"></span>
-                  </div>
                 </div>
               </div>
             </li>
@@ -404,14 +408,11 @@
                   <div class="cur-box">
                     <span class="icon maleshoes5"></span>
                   </div>
-                  <div class="cur-box">
-                    <span class="icon maleshoes6"></span>
-                  </div>
                 </div>
               </div>
             </li>
           </ul>
-          <span class="btn btn-small selec-close"  id="selectClose">返回分类</span>
+          <span class="btn btn-small selec-close" @click="isIcon=false">返回分类</span>
         </div>
         <div class="positon-center foot-btns ml25">
           <span class="btn btn-small" @click="showPage(5)">生成海报</span>
@@ -430,21 +431,32 @@
         </div>
         <div class="positon-center foot-btns">
           <span class="btn">长按保存</span>
-          <span class="btn" onclick="alert('请点击右上角微信分享');">分享海报</span>
+          <span class="btn" @click="alert('请点击右上角微信分享')">分享海报</span>
         </div>
       </div>
     </div>
     <audio id="bgmusic" src="../assets/music/yinyue.mp3" style="display: none" autoplay preload loop></audio>
   </div>
 </template>
-
 <script>
   import wx from 'weixin-js-sdk';
   export default {
     name: 'index',
     data () {
       return {
-        nowPage:0
+        nowPage:0,
+        isIcon:false,
+        types:[
+          {name:"发型",class:"hair"},
+          {name:"上衣",class:"jacket"},
+          {name:"下装",class:"pants"},
+          {name:"鞋子",class:"shoes"},
+          {name:"装饰",class:"object"},
+          {name:"眼镜",class:"eye"},
+          {name:"包包",class:"hat"}
+        ],
+        typeDetails:[
+        ],
       }
     },
     mounted(){
@@ -453,6 +465,9 @@
       showPage(index){
         this.nowPage=index
       },
+      selectDetail(){
+        this.isIcon=true
+      }
     }
   }
 </script>

@@ -206,6 +206,12 @@ body, html, #app {
     left: 50%;
     top: 50%;
 }
+.people img{
+  width: 55%;
+  position: absolute;
+  top: 18%;
+  left: 7%;
+}
 .box-inside {
   position: relative;
   width: 100%;
@@ -454,19 +460,39 @@ body, html, #app {
 .page.page4 .nav .nav-box li span.icon.femalehair4 {
     background-image: url(../../assets/img/icons/female/toufa4.png);
 }
+.page.page4 .nav .nav-box li span.icon.femalehair5 {
+  background-image: url(../../assets/img/icons/female/toufa5.png);
+}
+.page.page4 .nav .nav-box li span.icon.femalehair6 {
+  /*background-image: url(../../assets/img/icons/female/toufa6.png);*/
+}
+.page.page4 .nav .nav-box li span.icon.femalehair7 {
+  /*background-image: url(../../assets/img/icons/female/toufa7.png);*/
+}
+.page.page4 .nav .nav-box li span.icon.femalehair8 {
+  /*background-image: url(../../assets/img/icons/female/toufa8.png);*/
+}
+.page.page4 .nav .nav-box li span.icon.femalehair9 {
+  /*background-image: url(../../assets/img/icons/female/toufa9.png);*/
+}
+.page.page4 .nav .nav-box li span.icon.femalehair10 {
+  /*background-image: url(../../assets/img/icons/female/toufa10.png);*/
+}
 .page.page4 .nav .nav-box li span.icon.eye1 {
-    background-image: url(../../assets/img/yanjing1.png);
+    background-image: url(../../assets/img/icons/male/yanjing1.png);
 }
 .page.page4 .nav .nav-box li span.icon.eye2 {
-    background-image: url(../../assets/img/yanjing2.png);
-}
-.page.page4 .nav .nav-box li span.icon.eye3 {
-    background-image: url(../../assets/img/yanjing3.png);
+  background-image: url(../../assets/img/icons/male/yanjing2.png);
 }
 .page.page4 .nav .nav-box li span.icon.hat1 {
-    /*background-image: url(https://test.nie.163.com/test_cdn/id5/m/zt/20180515112427/img/femalehair/femalehair1_18f0f56.png);*/
+  background-image: url(../../assets/img/icons/male/maozi1.png);
 }
-
+.page.page4 .nav .nav-box li span.icon.hat2 {
+  background-image: url(../../assets/img/icons/male/maozi1.png);
+}
+.page.page4 .nav .nav-box li span.icon.hat3 {
+  background-image: url(../../assets/img/icons/male/maozi1.png);
+}
 .page.page4 .nav .nav-box li span.icon.femalejacket1 {
     background-image: url(../../assets/img/icons/female/shangyi1.png);
 }
@@ -490,7 +516,7 @@ body, html, #app {
     background-image: url(../../assets/img/icons/female/kuzi2.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalepants3 {
-    background-image: url(../../assets/img/icons/female/qunzi3.png);
+    background-image: url(../../assets/img/icons/female/kuzi3.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalepants4 {
     background-image: url(../../assets/img/icons/female/kuzi4.png);
@@ -498,9 +524,7 @@ body, html, #app {
 .page.page4 .nav .nav-box li span.icon.femalepants5 {
     background-image: url(../../assets/img/icons/female/kuzi5.png);
 }
-.page.page4 .nav .nav-box li span.icon.femalepants6 {
-    background-image: url(../../assets/img/icons/female/qunzi5.png);
-}
+
 .page.page4 .nav .nav-box li span.icon.femaleshoes1 {
     background-image: url(../../assets/img/icons/female/xiezi1.png);
 }
@@ -517,77 +541,101 @@ body, html, #app {
     background-image: url(../../assets/img/icons/female/xiezi5.png);
 }
 .page.page4 .nav .nav-box li span.icon.object1 {
-    background-image: url(../../assets/img/icons/female/shouzhuo1.png);
+    background-image: url(../../assets/img/icons/female/object1.png);
 }
 .page.page4 .nav .nav-box li span.icon.object2 {
-    background-image: url(../../assets/img/icons/female/xianglian1.png);
+    background-image: url(../../assets/img/icons/female/object2.png);
 }
 .page.page4 .nav .nav-box li span.icon.object3 {
-    background-image: url(../../assets/img/icons/female/xianglian3.png);
+    background-image: url(../../assets/img/icons/female/object3.png);
 }
 .page.page4 .nav .nav-box li span.icon.object4 {
-    background-image: url(../../assets/img/icons/female/xianglian4.png);
+    background-image: url(../../assets/img/icons/female/object4.png);
 }
 .page.page4 .nav .nav-box li span.icon.object5 {
-    background-image: url(../../assets/img/icons/female/shoutao5.png);
+    background-image: url(../../assets/img/icons/female/object5.png);
 }
 .page.page4 .nav .nav-box li span.icon.object6 {
-    background-image: url(../../assets/img/icons/female/toukui5.png);
+    background-image: url(../../assets/img/icons/female/object6.png);
 }
 .page.page4 .nav .nav-box li span.icon.object7 {
-    background-image: url(../../assets/img/icons/male/shouzhuo6.png);
+    background-image: url(../../assets/img/icons/female/object7.png);
 }
 .page.page4 .nav .nav-box li span.icon.object8{
-    background-image: url(../../assets/img/icons/male/xianglian6.png);
+    background-image: url(../../assets/img/icons/male/object8.png);
 }
 .page.page4 .nav .nav-box li span.icon.object9 {
-    background-image: url(../../assets/img/icons/male/maozi7.png);
+    background-image: url(../../assets/img/icons/male/object9.png);
 }
 .page.page4 .nav .nav-box li span.icon.object10 {
-    background-image: url(../../assets/img/icons/male/ahoutao7.png);
+    background-image: url(../../assets/img/icons/male/object10.png);
 }
 .page.page4 .nav .nav-box li span.icon.object11 {
-    background-image: url(../../assets/img/icons/male/shouzhuo8.png);
+    background-image: url(../../assets/img/icons/male/object11.png);
 }
 .page.page4 .nav .nav-box li span.icon.object12 {
-    background-image: url(../../assets/img/icons/male/xianglian8.png);
+    background-image: url(../../assets/img/icons/male/object12.png);
 }
 .page.page4 .nav .nav-box li span.icon.object13 {
-    background-image: url(../../assets/img/icons/male/huzi10.png);
+    background-image: url(../../assets/img/icons/male/object13.png);
 }
 .page.page4 .nav .nav-box li span.icon.object14 {
-    background-image: url(../../assets/img/icons/male/shoutao10.png);
+    background-image: url(../../assets/img/icons/male/object14.png);
 }
 .page.page4 .nav .nav-box li span.icon.object15 {
-    background-image: url(../../assets/img/icons/male/yandou10.png);
+    background-image: url(../../assets/img/icons/male/object15.png);
 }
-
-.page.page4 .nav .nav-box li span.icon.malehair1 {background-image: url(../../assets/img/icons/male/toufa6.png);}
-.page.page4 .nav .nav-box li span.icon.malehair2 {  background-image: url(../../assets/img/icons/male/toufa8.png);}
-.page.page4 .nav .nav-box li span.icon.malehair3 {  background-image: url(../../assets/img/icons/male/toufa9.png);}
-.page.page4 .nav .nav-box li span.icon.malehair4 {  background-image: url(../../assets/img/icons/male/toufa10.png);}
-.page.page4 .nav .nav-box li span.icon.malehair5 {  background-image: url(../../assets/img/icons/male/toufa11.png);}
-.page.page4 .nav .nav-box li span.icon.malepants1 {background-image: url(../../assets/img/icons/male/kuzi6.png);}
-.page.page4 .nav .nav-box li span.icon.malepants2 {background-image: url(../../assets/img/icons/male/kuzi7.png);}
-.page.page4 .nav .nav-box li span.icon.malepants3 {background-image: url(../../assets/img/icons/male/kuzi8.png);}
-.page.page4 .nav .nav-box li span.icon.malepants4 {background-image: url(../../assets/img/icons/male/kuzi9.png);}
-.page.page4 .nav .nav-box li span.icon.malepants5 {background-image: url(../../assets/img/icons/male/kuzi10.png);}
-.page.page4 .nav .nav-box li span.icon.malepants6 {background-image: url(../../assets/img/icons/male/kuzi11.png);}
-
-.page.page4 .nav .nav-box li span.icon.malejacket1 {background-image: url(../../assets/img/icons/male/shangyi6.png);}
-.page.page4 .nav .nav-box li span.icon.malejacket2 {background-image: url(../../assets/img/icons/male/shangyi7.png);}
-.page.page4 .nav .nav-box li span.icon.malejacket3 {background-image: url(../../assets/img/icons/male/shangyi8.png);}
-.page.page4 .nav .nav-box li span.icon.malejacket4 {background-image: url(../../assets/img/icons/male/shangyi9.png);}
-.page.page4 .nav .nav-box li span.icon.malejacket5 {background-image: url(../../assets/img/icons/male/shangyi10.png);}
-.page.page4 .nav .nav-box li span.icon.malejacket6 {background-image: url(../../assets/img/icons/male/shangyi11.png);}
-
-.page.page4 .nav .nav-box li span.icon.maleshoes1{background-image: url(../../assets/img/icons/male/xiezi6.png);}
-.page.page4 .nav .nav-box li span.icon.maleshoes2 {background-image: url(../../assets/img/icons/male/xiezi7.png);}
-.page.page4 .nav .nav-box li span.icon.maleshoes3 {background-image: url(../../assets/img/icons/male/xiezi8.png);}
-.page.page4 .nav .nav-box li span.icon.maleshoes4 {background-image: url(../../assets/img/icons/male/xiezi9.png);}
-.page.page4 .nav .nav-box li span.icon.maleshoes5 {background-image: url(../../assets/img/icons/male/xiezi10.png);}
-.page.page4 .nav .nav-box li span.icon.maleshoes6 {background-image: url(../../assets/img/icons/male/xiezi11.png);}
-
+.page.page4 .nav .nav-box li span.icon.object16 {
+  background-image: url(../../assets/img/icons/male/object16.png);
+}
+.page.page4 .nav .nav-box li span.icon.malehair1 {
+  background-image: url(../../assets/img/icons/male/toufa1.png);}
+.page.page4 .nav .nav-box li span.icon.malehair2 {
+  background-image: url(../../assets/img/icons/male/toufa2.png);}
+.page.page4 .nav .nav-box li span.icon.malehair3 {
+  background-image: url(../../assets/img/icons/male/toufa3.png);}
+.page.page4 .nav .nav-box li span.icon.malehair4 {
+  background-image: url(../../assets/img/icons/male/toufa4.png);}
+.page.page4 .nav .nav-box li span.icon.malehair5 {
+  background-image: url(../../assets/img/icons/male/toufa1.png);}
+.page.page4 .nav .nav-box li span.icon.malehair6 {
+  background-image: url(../../assets/img/icons/male/toufa2.png);}
+.page.page4 .nav .nav-box li span.icon.malehair7 {
+  background-image: url(../../assets/img/icons/male/toufa3.png);}
+.page.page4 .nav .nav-box li span.icon.malehair8 {
+  background-image: url(../../assets/img/icons/male/toufa4.png);}
+.page.page4 .nav .nav-box li span.icon.malehair9 {
+  background-image: url(../../assets/img/icons/male/toufa4.png);}
+.page.page4 .nav .nav-box li span.icon.malepants1 {
+  background-image: url(../../assets/img/icons/male/kuzi1.png);}
+.page.page4 .nav .nav-box li span.icon.malepants2 {
+  background-image: url(../../assets/img/icons/male/kuzi2.png);}
+.page.page4 .nav .nav-box li span.icon.malepants3 {
+  background-image: url(../../assets/img/icons/male/kuzi3.png);}
+.page.page4 .nav .nav-box li span.icon.malepants4 {
+  background-image: url(../../assets/img/icons/male/kuzi4.png);}
+.page.page4 .nav .nav-box li span.icon.malepants5 {
+  background-image: url(../../assets/img/icons/male/kuzi5.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket1 {
+  background-image: url(../../assets/img/icons/male/shangyi1.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket2 {
+  background-image: url(../../assets/img/icons/male/shangyi2.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket3 {
+  background-image: url(../../assets/img/icons/male/shangyi3.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket4 {
+  background-image: url(../../assets/img/icons/male/shangyi4.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket5 {
+  background-image: url(../../assets/img/icons/male/shangyi5.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes1{
+  background-image: url(../../assets/img/icons/male/xiezi1.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes2 {
+  background-image: url(../../assets/img/icons/male/xiezi2.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes3 {
+  background-image: url(../../assets/img/icons/male/xiezi3.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes4 {
+  background-image: url(../../assets/img/icons/male/xiezi4.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes5 {
+  background-image: url(../../assets/img/icons/male/xiezi5.png);}
 .nav-scole{
     background: url(../../assets/img/bgsele.png) no-repeat;
     height: 4.5rem;
@@ -695,86 +743,6 @@ body, html, #app {
     margin: auto;
     position: absolute;
     font-size: .35rem;
-}
-@-webkit-keyframes arrow1 {
-    0% {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    100% {
-        -webkit-transform: translate(-0.15rem, 0);
-        -moz-transform: translate(-0.15rem, 0);
-        -ms-transform: translate(-0.15rem, 0);
-        -o-transform: translate(-0.15rem, 0);
-        transform: translate(-0.15rem, 0);
-    }
-}
-@-moz-keyframes arrow1 {
-    0% {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    100% {
-        -webkit-transform: translate(-0.15rem, 0);
-        -moz-transform: translate(-0.15rem, 0);
-        -ms-transform: translate(-0.15rem, 0);
-        -o-transform: translate(-0.15rem, 0);
-        transform: translate(-0.15rem, 0);
-    }
-}
-@-ms-keyframes arrow1 {
-    0% {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    100% {
-        -webkit-transform: translate(-0.15rem, 0);
-        -moz-transform: translate(-0.15rem, 0);
-        -ms-transform: translate(-0.15rem, 0);
-        -o-transform: translate(-0.15rem, 0);
-        transform: translate(-0.15rem, 0);
-    }
-}
-@-o-keyframes arrow1 {
-    0% {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    100% {
-        -webkit-transform: translate(-0.15rem, 0);
-        -moz-transform: translate(-0.15rem, 0);
-        -ms-transform: translate(-0.15rem, 0);
-        -o-transform: translate(-0.15rem, 0);
-        transform: translate(-0.15rem, 0);
-    }
-}
-@keyframes arrow1 {
-    0% {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    100% {
-        -webkit-transform: translate(-0.15rem, 0);
-        -moz-transform: translate(-0.15rem, 0);
-        -ms-transform: translate(-0.15rem, 0);
-        -o-transform: translate(-0.15rem, 0);
-        transform: translate(-0.15rem, 0);
-    }
 }
 .yellow{
     color: #f6b003;
