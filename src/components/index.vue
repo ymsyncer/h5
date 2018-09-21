@@ -33,12 +33,12 @@
       <div class="page2-content clearfix">
         <label for="option0">
           <img src="../assets/img/nan.png">
-          <input type="radio" id="option0" name="mode" value = "0"  checked />
+          <input type="radio" id="option0" v-model="sex" name="mode" value = "male"  checked />
           <a class="btn">我是男生</a>
         </label>
         <label for="option1">
           <img src="../assets/img/nv.png">
-          <input type="radio" id="option1" name="mode" value = "1"  />
+          <input type="radio" id="option1" v-model="sex" name="mode" value = "female"  />
           <a class="btn">我是女生</a>
         </label>
       </div>
@@ -50,19 +50,19 @@
       <div class="positon-center back" @click="showPage(2)"><span></span>返回性别</div>
       <div class="page2-content page3-content clearfix">
         <label for="option3">
-          <input type="radio" id="option3" name="mode1" value = "001"  checked />
+          <input type="radio" id="option3" name="mode1"  v-model="designType"  value = "001"  checked />
           <img src="../assets/img/di1.png">
         </label>
         <label for="option4">
-          <input type="radio" id="option4" name="mode1" value = "002"  />
+          <input type="radio" id="option4" name="mode1"  v-model="designType"  value = "002"  />
           <img src="../assets/img/di2.png">
         </label>
         <label for="option5">
-          <input type="radio" id="option5" name="mode1" value = "003"  />
+          <input type="radio" id="option5" name="mode1"  v-model="designType"  value = "003"  />
           <img src="../assets/img/di3.png">
         </label>
         <label for="option6">
-          <input type="radio" id="option6" name="mode1" value = "004"  />
+          <input type="radio" id="option6" name="mode1"  v-model="designType"  value = "004"  />
           <img src="../assets/img/di4.png">
         </label>
       </div>
@@ -75,21 +75,19 @@
         <div class="positon-center back" @click="showPage(3)"><span>返回背景</span></div>
         <div class="positon-center canvas-box">
           <div class="people">
-            <img src="../assets/img/malebody/male.png" name="body">
-            <img src="../assets/img/malehair/malehair1.png" name="hair">
+            <img src="../assets/img/malebody/male.png" id="img1" name="body">
+            <img src="../assets/img/malehair/malehair1.png" id="img2" name="hair">
             <img src="../assets/img/malejacket/malejacket1.png" name="jacket">
             <img src="../assets/img/malepants/malepants1.png" name="pants">
             <img src="../assets/img/maleshoes/maleshoes1.png" name="shoes">
             <img src="../assets/img/object/object1.png" name="object">
             <img src="../assets/img/eye/eye1.png" name="eye">
           </div>
-          <canvas id="canvas" style="display: none;"></canvas>
-          <canvas id="canvas1" style="display: none;"></canvas>
-        </div>
-        <!--<div class="positon-center canvas-box">-->
-          <!--<canvas id="canvas"></canvas>-->
+          <img :src="'data:image/jpeg;base64,' + downloadUrl"/>
+
+          <canvas id="canvas"></canvas>
           <!--<canvas id="canvas1"></canvas>-->
-        <!--</div>-->
+        </div>
         <nav class="nav" :class="{show:!isIcon}">
           <div class="nav-box">
             <div v-for=" type in types" class="item" :class="type.class">
@@ -415,7 +413,7 @@
           <span class="btn btn-small selec-close" @click="isIcon=false">返回分类</span>
         </div>
         <div class="positon-center foot-btns ml25">
-          <span class="btn btn-small" @click="showPage(5)">生成海报</span>
+          <span class="btn btn-small" @click="generate">生成海报</span>
         </div>
       </div>
     </div>
@@ -446,6 +444,8 @@
       return {
         nowPage:0,
         isIcon:false,
+        sex:"male",
+        designType:"001",
         types:[
           {name:"发型",class:"hair"},
           {name:"上衣",class:"jacket"},
@@ -455,13 +455,57 @@
           {name:"眼镜",class:"eye"},
           {name:"包包",class:"hat"}
         ],
-        typeDetails:[
-        ],
+        canvas:"",
+        context:"",
+        downloadUrl:""
       }
     },
     mounted(){
+      let rem = document.documentElement.clientWidth / 375 * 312.5* 16 / 100;
+      const W = 7.5 *  rem;
+      const H = 13.34 * rem;
+      this.canvas = document.getElementById('canvas');
+      this.context = this.canvas.getContext('2d');
+      this.canvas.style.width = W + 'px';
+      this.canvas.style.height = H + 'px';
+      this.canvas.width = W * 2;
+      this.canvas.height = H * 2;
+
     },
     methods: {
+      drawCanvas(){
+        var self = this;
+        var ss=document.getElementById("img1").src;
+        var ss2=document.getElementById("img1").src;
+        debugger
+        var imgsrcArray = [];
+        imgsrcArray.push(ss);
+        imgsrcArray.push(ss2);
+        var imglen = imgsrcArray.length;
+        var drawimg = (function f(n){
+          if(n < imglen){
+            var img = new Image();
+            img.crossOrigin = 'Anonymous'; //解决跨域问题
+            img.onload = function(){
+              //ctx.save();
+              if(n == 0){
+                self.context.drawImage(img,0,0,750,1333);
+              }else{
+                self.context.drawImage(img,466,574,210,210);
+              }
+              f(n+1);
+            }
+            img.src = imgsrcArray[n];
+          }else{
+            self.downloadUrl = self.canvas.toDataURL("image/jpeg");
+            self.downloadUrl = self.downloadUrl.replace("data:image/jpeg;base64,", "");
+          }
+        })(0);
+      },
+      generate(){
+        this.drawCanvas()
+        // this.showPage(5)
+      },
       showPage(index){
         this.nowPage=index
       },
