@@ -262,7 +262,7 @@ body, html, #app {
 }
 .upload-content{
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
 .upload-box{
     width: 5rem;
@@ -464,33 +464,36 @@ body, html, #app {
   background-image: url(../../assets/img/icons/female/toufa5.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalehair6 {
-  /*background-image: url(../../assets/img/icons/female/toufa6.png);*/
+  background-image: url(../../assets/img/icons/female/toufa6.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalehair7 {
-  /*background-image: url(../../assets/img/icons/female/toufa7.png);*/
+  background-image: url(../../assets/img/icons/female/toufa7.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalehair8 {
-  /*background-image: url(../../assets/img/icons/female/toufa8.png);*/
+  background-image: url(../../assets/img/icons/female/toufa8.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalehair9 {
-  /*background-image: url(../../assets/img/icons/female/toufa9.png);*/
+  background-image: url(../../assets/img/icons/female/toufa9.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalehair10 {
-  /*background-image: url(../../assets/img/icons/female/toufa10.png);*/
+  background-image: url(../../assets/img/icons/female/toufa10.png);
+}
+.page.page4 .nav .nav-box li span.icon.femalehair11 {
+  background-image: url(../../assets/img/icons/female/toufa11.png);
+}
+.page.page4 .nav .nav-box li span.icon.femalehair12 {
+  background-image: url(../../assets/img/icons/female/toufa12.png);
 }
 .page.page4 .nav .nav-box li span.icon.eye1 {
     background-image: url(../../assets/img/icons/male/yanjing1.png);
 }
 .page.page4 .nav .nav-box li span.icon.eye2 {
-  background-image: url(../../assets/img/icons/male/yanjing2.png);
+   background-image: url(../../assets/img/icons/male/yanjing2.png);
+ }
+.page.page4 .nav .nav-box li span.icon.eye3 {
+  background-image: url(../../assets/img/icons/male/yanjing3.png);
 }
 .page.page4 .nav .nav-box li span.icon.hat1 {
-  background-image: url(../../assets/img/icons/male/maozi1.png);
-}
-.page.page4 .nav .nav-box li span.icon.hat2 {
-  background-image: url(../../assets/img/icons/male/maozi1.png);
-}
-.page.page4 .nav .nav-box li span.icon.hat3 {
   background-image: url(../../assets/img/icons/male/maozi1.png);
 }
 .page.page4 .nav .nav-box li span.icon.femalejacket1 {
@@ -508,7 +511,9 @@ body, html, #app {
 .page.page4 .nav .nav-box li span.icon.femalejacket5 {
     background-image: url(../../assets/img/icons/female/shangyi5.png);
 }
-
+.page.page4 .nav .nav-box li span.icon.femalejacket6 {
+  background-image: url(../../assets/img/icons/female/shangyi6.png);
+}
 .page.page4 .nav .nav-box li span.icon.femalepants1 {
     background-image: url(../../assets/img/icons/female/kuzi1.png);
 }
@@ -524,7 +529,9 @@ body, html, #app {
 .page.page4 .nav .nav-box li span.icon.femalepants5 {
     background-image: url(../../assets/img/icons/female/kuzi5.png);
 }
-
+.page.page4 .nav .nav-box li span.icon.femalepants6 {
+  background-image: url(../../assets/img/icons/female/kuzi6.png);
+}
 .page.page4 .nav .nav-box li span.icon.femaleshoes1 {
     background-image: url(../../assets/img/icons/female/xiezi1.png);
 }
@@ -539,6 +546,9 @@ body, html, #app {
 }
 .page.page4 .nav .nav-box li span.icon.femaleshoes5 {
     background-image: url(../../assets/img/icons/female/xiezi5.png);
+}
+.page.page4 .nav .nav-box li span.icon.femaleshoes6 {
+  background-image: url(../../assets/img/icons/female/xiezi6.png);
 }
 .page.page4 .nav .nav-box li span.icon.object1 {
     background-image: url(../../assets/img/icons/female/object1.png);
@@ -597,15 +607,21 @@ body, html, #app {
 .page.page4 .nav .nav-box li span.icon.malehair4 {
   background-image: url(../../assets/img/icons/male/toufa4.png);}
 .page.page4 .nav .nav-box li span.icon.malehair5 {
-  background-image: url(../../assets/img/icons/male/toufa1.png);}
+  background-image: url(../../assets/img/icons/male/toufa5.png);}
 .page.page4 .nav .nav-box li span.icon.malehair6 {
-  background-image: url(../../assets/img/icons/male/toufa2.png);}
+  background-image: url(../../assets/img/icons/male/toufa6.png);}
 .page.page4 .nav .nav-box li span.icon.malehair7 {
-  background-image: url(../../assets/img/icons/male/toufa3.png);}
+  background-image: url(../../assets/img/icons/male/toufa7.png);}
 .page.page4 .nav .nav-box li span.icon.malehair8 {
-  background-image: url(../../assets/img/icons/male/toufa4.png);}
+  background-image: url(../../assets/img/icons/male/toufa8.png);}
 .page.page4 .nav .nav-box li span.icon.malehair9 {
-  background-image: url(../../assets/img/icons/male/toufa4.png);}
+  background-image: url(../../assets/img/icons/male/toufa9.png);}
+.page.page4 .nav .nav-box li span.icon.malehair10 {
+  background-image: url(../../assets/img/icons/male/toufa10.png);}
+.page.page4 .nav .nav-box li span.icon.malehair11 {
+  background-image: url(../../assets/img/icons/male/toufa11.png);}
+.page.page4 .nav .nav-box li span.icon.malehair12 {
+  background-image: url(../../assets/img/icons/male/toufa12.png);}
 .page.page4 .nav .nav-box li span.icon.malepants1 {
   background-image: url(../../assets/img/icons/male/kuzi1.png);}
 .page.page4 .nav .nav-box li span.icon.malepants2 {
@@ -616,6 +632,10 @@ body, html, #app {
   background-image: url(../../assets/img/icons/male/kuzi4.png);}
 .page.page4 .nav .nav-box li span.icon.malepants5 {
   background-image: url(../../assets/img/icons/male/kuzi5.png);}
+.page.page4 .nav .nav-box li span.icon.malepants6 {
+  background-image: url(../../assets/img/icons/male/kuzi6.png);}
+.page.page4 .nav .nav-box li span.icon.malepants7 {
+  background-image: url(../../assets/img/icons/male/kuzi7.png);}
 .page.page4 .nav .nav-box li span.icon.malejacket1 {
   background-image: url(../../assets/img/icons/male/shangyi1.png);}
 .page.page4 .nav .nav-box li span.icon.malejacket2 {
@@ -626,6 +646,10 @@ body, html, #app {
   background-image: url(../../assets/img/icons/male/shangyi4.png);}
 .page.page4 .nav .nav-box li span.icon.malejacket5 {
   background-image: url(../../assets/img/icons/male/shangyi5.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket6 {
+  background-image: url(../../assets/img/icons/male/shangyi6.png);}
+.page.page4 .nav .nav-box li span.icon.malejacket7 {
+  background-image: url(../../assets/img/icons/male/shangyi7.png);}
 .page.page4 .nav .nav-box li span.icon.maleshoes1{
   background-image: url(../../assets/img/icons/male/xiezi1.png);}
 .page.page4 .nav .nav-box li span.icon.maleshoes2 {
@@ -636,6 +660,10 @@ body, html, #app {
   background-image: url(../../assets/img/icons/male/xiezi4.png);}
 .page.page4 .nav .nav-box li span.icon.maleshoes5 {
   background-image: url(../../assets/img/icons/male/xiezi5.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes6 {
+  background-image: url(../../assets/img/icons/male/xiezi6.png);}
+.page.page4 .nav .nav-box li span.icon.maleshoes7 {
+  background-image: url(../../assets/img/icons/male/xiezi7.png);}
 .nav-scole{
     background: url(../../assets/img/bgsele.png) no-repeat;
     height: 4.5rem;
@@ -654,14 +682,14 @@ body, html, #app {
     font-size: .3rem;
     padding: .05rem ;
 }
-.page.page4 .nav.list .nav-box li {
+.page.page4 .nav-box li {
     position: absolute;
     font-size: 0;
     padding-left: 0;
     overflow: hidden;
     display: none;
 }
-.page.page4 .nav.list .nav-box li.show {
+.page.page4 .nav-box li.show {
     display: block;
 }
 
@@ -688,31 +716,31 @@ body, html, #app {
     background: url(../../assets/img/backBtn.png) no-repeat;
     background-size: 100%;
 }
-.page.page4 .imgbox, .page.page5 .imgbox {
+ .page.page5 .imgbox {
     position: absolute;
     top: 20%;
     left: 0;
     width: 100%;
 }
-.page.page4 .imgbox .box-inside, .page.page5 .imgbox .box-inside {
+.page.page5 .imgbox .box-inside {
     text-align: center;
 }
-.page.page4 .imgbox .box-inside .box-inside-bg, .page.page5 .imgbox .box-inside  .box-inside-bg{
+.page.page5 .imgbox .box-inside .box-inside-bg{
     width: 6.5rem;
     height: 7rem;
     margin: 0 auto;
     background: url(../../assets/img/shadow.png) no-repeat;
     background-size: cover;
 }
-.page.page4 .imgbox .box-inside img, .page.page5 .imgbox .box-inside img {
+.page.page5 .imgbox .box-inside img {
     position: absolute;
-    left: 17%;
+    left: 18%;
     top: -10%;
     vertical-align: middle;
     height: 8.5rem;
     opacity: 0;
 }
-.page.page4 .imgbox .box-inside img.show, .page.page5 .imgbox .box-inside img.show {
+.page.page5 .imgbox .box-inside img.show {
     opacity: 1;
 }
 .foot-btns{
