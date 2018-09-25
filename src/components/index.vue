@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <div class="loading" id="loading"></div>
     <img :src="musicImg" class="music" @click="playPause">
     <div class="page page0" :class="{show:nowPage==0}">
       <img src="../assets/img/start.png" class="start-img">
@@ -25,7 +26,7 @@
           </a>
         </div>
         <div class="con-3">
-          <div class="haibao-bg-head upload-btn" @click="showPage(2)">选择性别</div>
+          <div class="haibao-bg-head upload-btn" @click="upload">选择性别</div>
         </div>
       </div>
     </div>
@@ -33,12 +34,12 @@
       <div class="page2-content clearfix">
         <label for="option0">
           <img src="../assets/img/nan.png">
-          <input type="radio" id="option0" v-model="sex" name="mode" value = "male"  checked />
+          <input type="radio" id="option0" v-model="sex" name="mode" value = "1"  checked />
           <a class="btn">我是男生</a>
         </label>
         <label for="option1">
           <img src="../assets/img/nv.png">
-          <input type="radio" id="option1" v-model="sex" name="mode" value = "female"  />
+          <input type="radio" id="option1" v-model="sex" name="mode" value = "2"  />
           <a class="btn">我是女生</a>
         </label>
       </div>
@@ -67,14 +68,14 @@
         </label>
       </div>
       <div class="start-content">
-        <img src="../assets/img/zidingyi.png" @click="showPage(4)" class="design">
+        <img src="../assets/img/zidingyi.png" @click="goDesign" class="design">
       </div>
     </div>
     <div class="page page4" :class="{show:nowPage==4}">
       <div class="box-inside">
         <div class="positon-center back" @click="showPage(3)"><span>返回背景</span></div>
         <div class="positon-center canvas-box">
-          <div class="people" v-if="sex=='male'">
+          <div class="people" v-if="sex==1">
             <img :src="maleBody.body">
             <img :src="maleBody.malehair">
             <img :src="maleBody.malepants" >
@@ -83,7 +84,7 @@
             <img :src="maleBody.object">
             <img :src="maleBody.eye">
           </div>
-          <div class="people" v-if="sex=='female'">
+          <div class="people" v-if="sex==2">
             <img :src="femaleBody.body">
             <img :src="femaleBody.femalehair">
             <img :src="femaleBody.femalepants" >
@@ -248,7 +249,7 @@
         <div class="imgbox">
           <div class="box-inside">
             <div class="box-inside-bg ">
-              <img :src="downloadUrl" class="show">
+              <img :src="downloadUrl" crossOrigin="anonymous" class="show">
             </div>
           </div>
         </div>
@@ -263,10 +264,23 @@
 </template>
 <script>
   import wx from 'weixin-js-sdk';
+  // import web from 'webuploader'
   import allPic from '@/assets/js/resourse'
   import axios from 'axios'
   var instance = axios.create({
     baseURL: 'http://118.190.76.178:8089/'
+  });
+  instance.interceptors.request.use(function (config) {
+    document.getElementById("loading").style.display="block";
+    return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+  instance.interceptors.response.use(function (response) {
+    document.getElementById("loading").style.display="none";
+    return response;
+  }, function (error) {
+    return Promise.reject(error);
   });
   export default {
     name: 'index',
@@ -274,7 +288,8 @@
       return {
         nowPage: 0,
         isIcon: false,
-        sex: "male",
+        sex:1,
+        isLoading:false,
         types: [
           { name: "发型", class: "hair" },
           { name: "上衣", class: "jacket" },
@@ -304,7 +319,7 @@
           femalepants : allPic.femalepants.femalepants1,
           femaleshoes : allPic.femaleshoes.femaleshoes1,
           femalejacket : allPic.femalejacket.femalejacket1,
-          eye:"",
+          eye:allPic.eye.eye1,
           femalehair : allPic.femalehair.femalehair1,
           object : allPic.object.object1,
         },
@@ -334,7 +349,8 @@
         peopleNum:0,
         camaraImg:allPic.camaraImg,
         musicImg:allPic.playImg,
-        play_mp3_url:allPic.music
+        play_mp3_url:allPic.music,
+        localId:""
       }
     },
     mounted(){
@@ -348,12 +364,25 @@
       this.canvas.width = this.W * 2;
       this.canvas.height = this.H * 2;
       this.shareWX();
-      let self=this
+      let self=this;
       document.addEventListener("WeixinJSBridgeReady", function () {
         self.audioPlay();
       }, false);
     },
     methods: {
+      goDesign(){
+        let self=this;
+        instance.get("http://123.207.161.92:8089/drees/fuse?url=Picture/temp/2.jpg",
+          {params:{type:self.sex}})
+          .then((val)=>{
+            if (self.sex == 1) {
+              self.maleBody.body="http://118.190.76.178:8089/drees/span?url="+val.data.returnValue;
+            }else {
+              self.femaleBody.body="http://118.190.76.178:8089/drees/span?url="+val.data.returnValue;
+            }
+            self.showPage(4);
+          })
+      },
       audioPlay() {
         this.play_mp3_url=allPic.music;
         this.$refs.player.play();
@@ -424,10 +453,11 @@
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
+            self.localId=res.localIds[0]
             wx.getLocalImgData({
               localId: res.localIds[0], // 图片的localID
               success: function (res) {
-                self.camaraImg=res.localData
+                self.camaraImg=res.localData;
               }
             });
           }
@@ -439,18 +469,34 @@
       choose_form_album(){
         wx.chooseImage(this.getConfig('album'))
       },
+      upload(){
+        let self=this;
+        let fd = new FormData();
+        fd.append('id',"WU_FILE_0");
+        fd.append('name',"模型.png");
+        fd.append('lastModifiedDate',new Date());
+        fd.append('size',"16286");
+        fd.append('file',self.localId);
+        instance.post("http://123.207.161.92:8080/image-server/uploadImage?mediaType=Picture&module=L",fd)
+          .then((val)=>{
+            // alert(self.localId)
+            // alert(val)
+          })
+        self.showPage(2)
+      },
       drawCanvas(){
         let self = this, imgSrcArray = [];
-        if (this.sex == "male") {
+        if (this.sex == 1) {
           imgSrcArray.push(this.maleBody.body,this.maleBody.malehair,this.maleBody.eye,this.maleBody.malepants,this.maleBody.malejacket,this.maleBody.object,this.maleBody.maleshoes);
         }else {
           imgSrcArray.push(this.femaleBody.body,this.femaleBody.femalehair,this.femaleBody.eye,this.femaleBody.femalepants,this.femaleBody.femalejacket,this.femaleBody.object,this.femaleBody.femaleshoes);
+          debugger
         }
         let imglen = imgSrcArray.length;
         let drawimg = (function f(n){
           if(n < imglen){
             let img = new Image();
-            img.crossOrigin = "anonymous";
+            img.crossOrigin = 'anonymous';
             img.onload = function(){
               self.context.drawImage(img,0,0,self.canvas.width*0.54,self.canvas.height*0.68,self.canvas.width*0.25,self.canvas.height*0.1,self.canvas.width*0.54*0.91,self.canvas.height*0.68*0.91);
               self.context.restore();
@@ -511,7 +557,7 @@
       },
       change(val,i){
         this[val+"Index"]=i;
-        if (this.sex == "male") {
+        if (this.sex == 1) {
           this.maleBody[val]=this[val][val+i];
         }else {
           this.femaleBody[val]=this[val][val+i];
@@ -525,7 +571,7 @@
         if (['hat','eye','object'].indexOf(type.class) != -1) {
           this.nowType=type.class;
         }else {
-          if (this.sex =="male") {
+          if (this.sex ==1) {
             this.nowType="male"+"-"+type.class;
           }else {
             this.nowType="female"+"-"+type.class;
