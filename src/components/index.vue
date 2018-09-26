@@ -77,6 +77,7 @@
         <div class="positon-center canvas-box">
           <div class="people" v-if="sex==1">
             <img :src="maleBody.body">
+            <img :src="maleBody.img"/>
             <img :src="maleBody.malehair">
             <img :src="maleBody.malepants">
             <img :src="maleBody.malejacket">
@@ -86,6 +87,7 @@
           </div>
           <div class="people" v-if="sex==2">
             <img :src="femaleBody.body">
+            <img :src="femaleBody.img"/>
             <img :src="femaleBody.femalehair">
             <img :src="femaleBody.femalepants">
             <img :src="femaleBody.femalejacket">
@@ -363,6 +365,7 @@
         H: "",
         maleBody: {
           body: allPic.malebody,
+          img:"",
           malepants: allPic.malepants.malepants1,
           maleshoes: allPic.maleshoes.maleshoes1,
           malejacket: allPic.malejacket.malejacket1,
@@ -372,6 +375,7 @@
         },
         femaleBody: {
           body: allPic.femalebody,
+          img: "",
           femalepants: allPic.femalepants.femalepants1,
           femaleshoes: allPic.femaleshoes.femaleshoes1,
           femalejacket: allPic.femalejacket.femalejacket1,
@@ -438,9 +442,10 @@
             return
           }
           if (self.sex == 1) {
-            self.maleBody.body = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
+            // self.maleBody.img="http://118.190.76.178:8089/drees/span?url=http://123.207.161.92:8080/image-server/original?relUrl=Picture/temp/1537889658034.png"
+            self.maleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
           } else {
-            self.femaleBody.body = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
+            self.femaleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
           }
           self.showPage(4);
         })
@@ -558,12 +563,22 @@
       drawCanvas() {
         let self = this, imgSrcArray = [];
         if (this.sex == 1) {
-          imgSrcArray.push(this.maleBody.body, this.maleBody.malehair, this.maleBody.malepants, this.maleBody.malejacket, this.maleBody.maleobject, this.maleBody.maleshoes);
+          if ((this.maleBody.img != "")) {
+            imgSrcArray.push(this.maleBody.body,this.maleBody.img)
+          }else {
+            imgSrcArray.push(this.maleBody.body);
+          }
+          imgSrcArray.push(this.maleBody.malehair, this.maleBody.malepants, this.maleBody.malejacket, this.maleBody.maleobject, this.maleBody.maleshoes)
           if (this.maleBody.eye != "") {
             imgSrcArray.push(this.maleBody.eye)
           }
         } else {
-          imgSrcArray.push(this.femaleBody.body, this.femaleBody.femalehair, this.femaleBody.femalepants, this.femaleBody.femalejacket, this.femaleBody.femaleobject, this.femaleBody.femaleshoes);
+          if ((this.femaleBody.img != "")) {
+            imgSrcArray.push(this.femaleBody.body,this.femaleBody.img)
+          }else {
+            imgSrcArray.push(this.femaleBody.body);
+          }
+          imgSrcArray.push(this.femaleBody.femalehair, this.femaleBody.femalepants, this.femaleBody.femalejacket, this.femaleBody.femaleobject, this.femaleBody.femaleshoes);
         }
         let imglen = imgSrcArray.length;
         let drawimg = (function f(n) {
@@ -641,7 +656,7 @@
         this.isIcon = false
       },
       selectDetail(type) {
-        if (['hat', 'eye', 'object'].indexOf(type.class) != -1) {
+        if (['eye', 'object'].indexOf(type.class) != -1) {
           this.nowType = type.class;
         } else {
           if (this.sex == 1) {
