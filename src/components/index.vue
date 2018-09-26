@@ -340,7 +340,7 @@
           { name: "上衣", class: "jacket" },
           { name: "下装", class: "pants" },
           { name: "鞋子", class: "shoes" },
-          { name: "装饰", class: "object" },
+          // { name: "装饰", class: "object" },
           { name: "眼镜", class: "eye" }
         ],
         feTypes: [
@@ -348,7 +348,7 @@
           { name: "上衣", class: "jacket" },
           { name: "下装", class: "pants" },
           { name: "鞋子", class: "shoes" },
-          { name: "装饰", class: "object" }
+          // { name: "装饰", class: "object" }
         ],
         hairClass: [],
         nowType: "",
@@ -559,7 +559,6 @@
           }
         } else {
           imgSrcArray.push(this.femaleBody.body, this.femaleBody.femalehair, this.femaleBody.femalepants, this.femaleBody.femalejacket, this.femaleBody.object, this.femaleBody.femaleshoes);
-          debugger
         }
         let imglen = imgSrcArray.length;
         let drawimg = (function f(n) {
