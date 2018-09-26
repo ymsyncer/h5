@@ -286,7 +286,6 @@
   import wx from 'weixin-js-sdk';
   import allPic from '@/assets/js/resourse'
   import axios from 'axios'
-
   var instance = axios.create({
     baseURL: 'http://118.190.76.178:8089/'
   });
@@ -318,7 +317,6 @@
   //     blob:new Blob([ab], { type: mimeString })
   //   };
   // }
-
   function dataURLtoFile(dataurl, filename) {//将base64转换为文件
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
@@ -527,10 +525,15 @@
           sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
             wx.getLocalImgData({
-              localId: res.localIds[0], // 图片的localID
+              localId: res.localIds[0],
               success: function (res) {
-                self.camaraImg = res.localData;
-                self.upload(dataURLtoFile(res.localData,'123.jpg'));
+                let localData = res.localData;
+                if (localData.indexOf('data:image') != 0) {
+                   localData = 'data:image/jpeg;base64,' +  localData
+                }
+                localData = localData.replace(/\r|\n/g, '').replace('data:image/jgp', 'data:image/jpeg');
+                self.camaraImg = localData;
+                self.upload(dataURLtoFile(localData,'123.jpg'));
               }
             });
           }
