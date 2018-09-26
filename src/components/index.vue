@@ -81,7 +81,7 @@
             <img :src="maleBody.malepants">
             <img :src="maleBody.malejacket">
             <img :src="maleBody.maleshoes">
-            <img :src="maleBody.object">
+            <img :src="maleBody.maleobject">
             <img :src="maleBody.eye">
           </div>
           <div class="people" v-if="sex==2">
@@ -90,7 +90,7 @@
             <img :src="femaleBody.femalepants">
             <img :src="femaleBody.femalejacket">
             <img :src="femaleBody.femaleshoes">
-            <img :src="femaleBody.object">
+            <img :src="femaleBody.femaleobject">
           </div>
           <canvas id="canvas" style="opacity: 0;"></canvas>
         </div>
@@ -192,8 +192,11 @@
               </div>
               <div class="nav-scole">
                 <div class="nav-scole-div">
-                  <div @click="change('object',i)" v-for="i in 15" class="cur-box" :class="{cur:i==objectIndex}">
-                    <span class="icon" :class="'object'+i"></span>
+                  <div v-if="sex==1" v-for="i in 9"  @click="change('maleobject',i)" class="cur-box" :class="{cur:i==maleobjectIndex}">
+                    <span class="icon" :class="'maleobject'+i"></span>
+                  </div>
+                  <div v-if="sex==2" v-for="i in 7" @click="change('femaleobject',i)" class="cur-box" :class="{cur:i==femaleobjectIndex}">
+                    <span class="icon" :class="'femaleobject'+i"></span>
                   </div>
                 </div>
               </div>
@@ -340,7 +343,7 @@
           { name: "上衣", class: "jacket" },
           { name: "下装", class: "pants" },
           { name: "鞋子", class: "shoes" },
-          // { name: "装饰", class: "object" },
+          { name: "装饰", class: "object" },
           { name: "眼镜", class: "eye" }
         ],
         feTypes: [
@@ -348,7 +351,7 @@
           { name: "上衣", class: "jacket" },
           { name: "下装", class: "pants" },
           { name: "鞋子", class: "shoes" },
-          // { name: "装饰", class: "object" }
+          { name: "装饰", class: "object" }
         ],
         hairClass: [],
         nowType: "",
@@ -364,7 +367,7 @@
           malejacket: allPic.malejacket.malejacket1,
           eye: "",
           malehair: allPic.malehair.malehair1,
-          object: allPic.object.object1,
+          maleobject: allPic.maleobject.maleobject1,
         },
         femaleBody: {
           body: allPic.femalebody,
@@ -372,10 +375,12 @@
           femaleshoes: allPic.femaleshoes.femaleshoes1,
           femalejacket: allPic.femalejacket.femalejacket1,
           femalehair: allPic.femalehair.femalehair1,
-          object: allPic.object.object1,
+          femaleobject: allPic.femaleobject.femaleobject1
         },
-        object: allPic.object,
-        objectIndex: 1,
+        maleobject: allPic.maleobject,
+        maleobjectIndex: 1,
+        femaleobject:allPic.femaleobject,
+        femaleobjectIndex: 1,
         eye: allPic.eye,
         eyeIndex: 0,
         malehair: allPic.malehair,
@@ -432,7 +437,6 @@
             return
           }
           if (self.sex == 1) {
-            // self.maleBody.body="http://118.190.76.178:8089/drees/span?url=http://123.207.161.92:8080/image-server/original?relUrl=Picture/temp/1537889658034.png"
             self.maleBody.body = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
           } else {
             self.femaleBody.body = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
@@ -553,12 +557,12 @@
       drawCanvas() {
         let self = this, imgSrcArray = [];
         if (this.sex == 1) {
-          imgSrcArray.push(this.maleBody.body, this.maleBody.malehair, this.maleBody.malepants, this.maleBody.malejacket, this.maleBody.object, this.maleBody.maleshoes);
+          imgSrcArray.push(this.maleBody.body, this.maleBody.malehair, this.maleBody.malepants, this.maleBody.malejacket, this.maleBody.maleobject, this.maleBody.maleshoes);
           if (this.maleBody.eye != "") {
             imgSrcArray.push(this.maleBody.eye)
           }
         } else {
-          imgSrcArray.push(this.femaleBody.body, this.femaleBody.femalehair, this.femaleBody.femalepants, this.femaleBody.femalejacket, this.femaleBody.object, this.femaleBody.femaleshoes);
+          imgSrcArray.push(this.femaleBody.body, this.femaleBody.femalehair, this.femaleBody.femalepants, this.femaleBody.femalejacket, this.femaleBody.femaleobject, this.femaleBody.femaleshoes);
         }
         let imglen = imgSrcArray.length;
         let drawimg = (function f(n) {

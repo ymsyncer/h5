@@ -5,22 +5,22 @@ import eye1 from '../../assets/img/eye/eye1.png';
 import eye2 from '../../assets/img/eye/eye2.png';
 import eye3 from '../../assets/img/eye/eye3.png';
 
-import object1 from '../../assets/img/object/object1.png';
-import object2 from '../../assets/img/object/object2.png';
-import object3 from '../../assets/img/object/object3.png';
-import object4 from '../../assets/img/object/object4.png';
-import object5 from '../../assets/img/object/object5.png';
-import object6 from '../../assets/img/object/object6.png';
-import object7 from '../../assets/img/object/object7.png';
-import object8 from '../../assets/img/object/object8.png';
-import object9 from '../../assets/img/object/object9.png';
-import object10 from '../../assets/img/object/object10.png';
-import object11 from '../../assets/img/object/object11.png';
-import object12 from '../../assets/img/object/object12.png';
-import object13 from '../../assets/img/object/object13.png';
-import object14 from '../../assets/img/object/object14.png';
-import object15 from '../../assets/img/object/object15.png';
-import object16 from '../../assets/img/object/object16.png';
+import femaleobject1 from '../../assets/img/object/object1.png';
+import femaleobject2 from '../../assets/img/object/object2.png';
+import femaleobject3 from '../../assets/img/object/object3.png';
+import femaleobject4 from '../../assets/img/object/object4.png';
+import femaleobject5 from '../../assets/img/object/object5.png';
+import femaleobject6 from '../../assets/img/object/object6.png';
+import femaleobject7 from '../../assets/img/object/object7.png';
+import maleobject1 from '../../assets/img/object/object8.png';
+import maleobject2 from '../../assets/img/object/object9.png';
+import maleobject3 from '../../assets/img/object/object10.png';
+import maleobject4 from '../../assets/img/object/object11.png';
+import maleobject5 from '../../assets/img/object/object12.png';
+import maleobject6 from '../../assets/img/object/object13.png';
+import maleobject7 from '../../assets/img/object/object14.png';
+import maleobject8 from '../../assets/img/object/object15.png';
+import maleobject9 from '../../assets/img/object/object16.png';
 
 import malehair1 from '../../assets/img/malehair/malehair1.png';
 import malehair2 from '../../assets/img/malehair/malehair2.png';
@@ -125,9 +125,10 @@ const allPic={
   femaleshoes:{femaleshoes1,femaleshoes2,femaleshoes3,femaleshoes4,femaleshoes5,femaleshoes6},
   femalepants:{femalepants1,femalepants2,femalepants3,femalepants4,femalepants5,femalepants6},
   femalejacket:{femalejacket1,femalejacket2,femalejacket3,femalejacket4,femalejacket5,femalejacket6},
+  maleobject:{maleobject1, maleobject2, maleobject3, maleobject4, maleobject5, maleobject6, maleobject7,maleobject8,maleobject9},
+  femaleobject:{femaleobject1,femaleobject2,femaleobject3,femaleobject4,femaleobject5,femaleobject6,femaleobject7 },
   haibaos:[haibao1,haibao2,haibao3,haibao4,haibao5,haibao6,haibao7,haibao8],
   selectBgs:{bg1,bg2,bg3,bg4},
-  object:{ object1, object2, object3, object4, object5, object6, object7, object8, object9, object10, object11, object12, object13, object14, object15, object16 },
   haibaoBg:haibaoBg,
   camaraImg:camaraImg,
   music:music,
