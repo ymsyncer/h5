@@ -1,3 +1,4 @@
+import start from '../../assets/img/start.png'
 import malebody from '../../assets/img/malebody/male.png';
 import femalebody from '../../assets/img/femalebody/female.png';
 
@@ -114,6 +115,7 @@ import playImg from '../../assets/img/yieyue.png';
 import pauseImg from '../../assets/img/zanting.png';
 
 const allPic={
+  start:start,
   malebody:malebody,
   femalebody:femalebody,
   eye:{eye1,eye2,eye3},

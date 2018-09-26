@@ -3,7 +3,7 @@
     <div class="loading" id="loading"></div>
     <img :src="musicImg" class="music" @click="playPause">
     <div class="page page0" :class="{show:nowPage==0}">
-      <img src="../assets/img/start.png" class="start-img">
+      <img :src="start" class="start-img">
       <div class="start-content">
         <a class="btn" @click="showPage(1)">立即开始</a>
       </div>
@@ -334,6 +334,7 @@
     name: 'index',
     data() {
       return {
+        start:allPic.start,
         nowPage: 0,
         isIcon: false,
         sex: 1,
