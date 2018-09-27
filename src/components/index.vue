@@ -117,7 +117,7 @@
               </div>
               <div class="nav-scole">
                 <div class="nav-scole-div">
-                  <div v-for="i in 3" @click="change('eye',i)" class="cur-box" :class="{cur:i==eyeIndex}">
+                  <div v-for="i in 2" @click="change('eye',i)" class="cur-box" :class="{cur:i==eyeIndex}">
                     <span class="icon" :class="'eye'+i"></span>
                   </div>
                 </div>
@@ -299,6 +299,7 @@
     document.getElementById("loading").style.display = "none";
     return response;
   }, function (error) {
+    document.getElementById("loading").style.display = "none";
     return Promise.reject(error);
   });
   function dataURLtoFile(dataurl, filename) {//将base64转换为文件
@@ -413,45 +414,39 @@
     methods: {
       goDesign() {
         let self = this;
-        // let formdata = new FormData();
-        // let template_url;
-        // if (self.sex == 1) {
-        //   template_url="http://h5.1roadshow.com/static/img/male.08aa734.png"
-        // }else {
-        //   template_url="http://h5.1roadshow.com/static/img/female.1fe78ca.png"
-        // }
-        // formdata.append('api_key', "WsMnjIMvwlgiFzOh_NghX_gU0ZLfGYiY");
-        // formdata.append('api_secret', "qZt6v9-qoJ33qfYd8iV2ujFTIgy6TLOE");
-        // formdata.append('template_url', template_url);
-        // formdata.append('merge_url',"http://123.207.161.92:8080/image-server/imageThumbnail?relUrl="+self.picture);
-        // instance.post("https://api-cn.faceplusplus.com/imagepp/v1/mergeface", formdata)
-        //   .then((response) => {
-        //     if (self.sex == 1) {
-        //       self.maleBody.img="data:image/jpg/png;base64,"+response.data.result
-        //     } else {
-        //       self.femaleBody.img = "data:image/jpg/png;base64,"+response.data.result
-        //     }
-        //     self.showPage(4)
-        //   })
-        //   .catch((err)=>{
-        //     console.log(err);
-        //   });
-
-        instance.get("http://123.207.161.92:8089/drees/fuse?url="+this.picture,
-          { params: { type: self.sex } })
-        .then((val) => {
-          if (!val.data.success) {
-            alert(val.data.errors[0]);
-            self.showPage(4);
-            return
-          }
-          if (self.sex == 1) {
-            self.maleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
-          } else {
-            self.femaleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
-          }
-          self.showPage(4);
-        })
+        let formdata = new FormData();
+        let template_url;
+        if (self.sex == 1) {
+          template_url="http://h5.1roadshow.com/static/male.png"
+        }else {
+          template_url="http://h5.1roadshow.com/static/female.png"
+        }
+        formdata.append('api_key', "WsMnjIMvwlgiFzOh_NghX_gU0ZLfGYiY");
+        formdata.append('api_secret', "qZt6v9-qoJ33qfYd8iV2ujFTIgy6TLOE");
+        formdata.append('template_url', template_url);
+        formdata.append('merge_url',"http://123.207.161.92:8080/image-server/imageThumbnail?relUrl="+self.picture);
+        instance.post("https://api-cn.faceplusplus.com/imagepp/v1/mergeface", formdata)
+          .then((response) => {
+            let formdata1 = new FormData();
+            formdata1.append('base64', response.data.result);
+            instance.post("http://123.207.161.92:8089/drees/covert", formdata1)
+              .then((res) => {
+                if (self.sex == 1) {
+                  self.maleBody.img=res.data.returnValue
+                } else {
+                  self.femaleBody.img = res.data.returnValue
+                }
+                self.showPage(4)
+              })
+              .catch((err)=>{
+                console.log(err);
+              });
+            // self.showPage(4)
+          })
+          .catch((err)=>{
+            alert("未找到融合的图片");
+            self.showPage(1)
+          });
       },
       audioPlay() {
         this.play_mp3_url = allPic.music;

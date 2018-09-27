@@ -4,7 +4,6 @@ import femalebody from '../../assets/img/femalebody/female.png';
 
 import eye1 from '../../assets/img/eye/eye1.png';
 import eye2 from '../../assets/img/eye/eye2.png';
-import eye3 from '../../assets/img/eye/eye3.png';
 
 import femaleobject1 from '../../assets/img/object/object1.png';
 import femaleobject2 from '../../assets/img/object/object2.png';
@@ -118,7 +117,7 @@ const allPic={
   start:start,
   malebody:malebody,
   femalebody:femalebody,
-  eye:{eye1,eye2,eye3},
+  eye:{eye1,eye2},
   malehair:{ malehair1, malehair2, malehair3, malehair4, malehair5, malehair6, malehair7, malehair8, malehair9 ,malehair10,malehair11,malehair12},
   maleshoes:{ maleshoes1,maleshoes2,maleshoes3,maleshoes4,maleshoes5,maleshoes6,maleshoes7 },
   malepants:{malepants1,malepants2,malepants3,malepants4,malepants5,malepants6,malepants7},
