@@ -178,7 +178,7 @@ body, html, #app {
     height: 100%;
 }
 .btn{
-    padding:.1rem .4rem;
+    padding:.1rem .25rem;
     border: 1px solid #f8b100;
     border-style: dashed;
     border-radius: .1rem;
@@ -747,7 +747,7 @@ body, html, #app {
 }
 .foot-btns{
     margin-top: 4.1rem;
-    margin-left: -3rem;
+    margin-left: -3.4rem;
 }
 .haibao-bg-head {
     text-align: center;

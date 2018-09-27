@@ -275,7 +275,7 @@
         </div>
         <div class="positon-center foot-btns">
           <span class="btn">长按保存</span>
-          <span class="btn" @click="alert('请点击右上角微信分享')">分享海报</span>
+          <span class="btn">点击右上角分享</span>
         </div>
       </div>
     </div>
@@ -301,22 +301,6 @@
   }, function (error) {
     return Promise.reject(error);
   });
-
-  // function dataURItoBlob(dataURI) {
-  //   const byteString = atob(dataURI.split(',')[1]);
-  //   const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-  //   const ab = new ArrayBuffer(byteString.length);
-  //   const ia = new Uint8Array(ab);
-  //   for (var i = 0; i < byteString.length; i++) {
-  //     ia[i] = byteString.charCodeAt(i);
-  //   }
-  //   alert(mimeString);
-  //   alert(dataURI);
-  //   return {
-  //     type:mimeString,
-  //     blob:new Blob([ab], { type: mimeString })
-  //   };
-  // }
   function dataURLtoFile(dataurl, filename) {//将base64转换为文件
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
@@ -328,8 +312,6 @@
       blob:new File([u8arr], filename, {type:mime})
     };
   }
-
-
   export default {
     name: 'index',
     data() {
@@ -431,6 +413,30 @@
     methods: {
       goDesign() {
         let self = this;
+        // let formdata = new FormData();
+        // let template_url;
+        // if (self.sex == 1) {
+        //   template_url="http://h5.1roadshow.com/static/img/male.08aa734.png"
+        // }else {
+        //   template_url="http://h5.1roadshow.com/static/img/female.1fe78ca.png"
+        // }
+        // formdata.append('api_key', "WsMnjIMvwlgiFzOh_NghX_gU0ZLfGYiY");
+        // formdata.append('api_secret', "qZt6v9-qoJ33qfYd8iV2ujFTIgy6TLOE");
+        // formdata.append('template_url', template_url);
+        // formdata.append('merge_url',"http://123.207.161.92:8080/image-server/imageThumbnail?relUrl="+self.picture);
+        // instance.post("https://api-cn.faceplusplus.com/imagepp/v1/mergeface", formdata)
+        //   .then((response) => {
+        //     if (self.sex == 1) {
+        //       self.maleBody.img="data:image/jpg/png;base64,"+response.data.result
+        //     } else {
+        //       self.femaleBody.img = "data:image/jpg/png;base64,"+response.data.result
+        //     }
+        //     self.showPage(4)
+        //   })
+        //   .catch((err)=>{
+        //     console.log(err);
+        //   });
+
         instance.get("http://123.207.161.92:8089/drees/fuse?url="+this.picture,
           { params: { type: self.sex } })
         .then((val) => {
@@ -440,7 +446,6 @@
             return
           }
           if (self.sex == 1) {
-            // self.maleBody.img="http://118.190.76.178:8089/drees/span?url=http://123.207.161.92:8080/image-server/original?relUrl=Picture/temp/1537889658034.png"
             self.maleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
           } else {
             self.femaleBody.img = "http://118.190.76.178:8089/drees/span?url=" + val.data.returnValue;
@@ -554,14 +559,18 @@
         fd.append('size', "16286");
         fd.append('type',file.type);
         fd.append('file', file.blob);
+        if (file.blob == undefined) {
+          self.showPage(2);
+           return
+        }
         instance.post("http://123.207.161.92:8080/image-server/uploadImage?mediaType=Picture&module=L", fd)
         .then((val) => {
-          self.picture=val.data
+          self.picture=val.data;
         })
         .catch((err)=>{
           console.log(err);
         });
-        self.showPage(2)
+        self.showPage(2);
       },
       drawCanvas() {
         let self = this, imgSrcArray = [];
@@ -621,7 +630,7 @@
           self.context.font = "30px HYYaKuHeiJ";
           self.context.fillStyle = "#ff0092";
           let score = Math.floor(Math.random() * (100 - 78)) + 78;
-          self.context.fillText(score, self.canvas.width * 0.56, self.canvas.height * 0.915);
+          self.context.fillText(score, self.canvas.width * 0.58, self.canvas.height * 0.915);
           self.context.font = "25px HYYaKuHeiJ";
           self.context.fillStyle = "#ababac";
           self.context.fillText("当 然 啦,你 还 有 " + self.peopleNum + " 个 手 下 败 将！", self.canvas.width * 0.08, self.canvas.height * 0.955);
